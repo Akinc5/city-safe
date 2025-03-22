@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Safe - Real-time Safety Insights</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Color variables */
+        :root {
+            --primary-blue: #0056b3;
+            --dark-blue: #021d42;
+            --light-blue: #a7c5da;
+            --accent-red: #e63946;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-container input {
+            padding: 0.5rem 1rem;
+            padding-left: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 0.7rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Hero section styles */
+        .hero {
+            display: flex;
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, var(--light-blue) 0%, #6bb5ff 100%);
+            min-height: 500px;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-container {
+            width: 300px;
+            height: 300px;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-grid {
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(255,206,0,0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,206,0,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .map-pin {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            color: var(--accent-red);
+            font-size: 50px;
+        }
+
+        .hero-subtitle {
+            text-transform: uppercase;
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            color: var(--dark-blue);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--dark-blue);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            margin-right: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero-content {
+                margin-bottom: 3rem;
+                padding-right: 0;
+            }
+
+            .hero-image {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-right: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .search-container {
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            .search-container input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/40" alt="City Safe Logo">
+            <span class="logo-text">CITY SAFE</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Review</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search">
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">THE PERFECT RESOURCE TO A SAFE CITY</p>
+            <h1 class="hero-title">CITY SAFE</h1>
+            <p class="hero-description">
+                Stay Safe, Stay Informed.<br>
+                Our app provides real-time safety insights with location-specific reports. AI-driven analytics to help you avoid danger zones. Navigate your city confidently with real-time updates and emergency assistance at your fingertips.
+            </p>
+            <a href="#" class="cta-button">Download Now</a>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="map-container">
+                <div class="map-grid"></div>
+                <i class="fas fa-map-marker-alt map-pin"></i>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add active class to current navigation item
+        const currentLocation = location.href;
+        const navItems = document.querySelectorAll('nav ul li a');
+        
+        navItems.forEach(item => {
+            if(item.href === currentLocation) {
+                item.classList.add('active');
+            }
+        });
+
+        // Simple map pin animation
+        const mapPin = document.querySelector('.map-pin');
+        let pinOffset = 0;
+        
+        setInterval(() => {
+            pinOffset = pinOffset === 0 ? -5 : 0;
+            mapPin.style.transform = `translate(-50%, ${pinOffset}px)`;
+        }, 1000);
+    </script>
+</body>
+</html>

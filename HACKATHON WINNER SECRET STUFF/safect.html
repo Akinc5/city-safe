@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CITY SAFE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f6f9;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #0d2e4d;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #0d2e4d;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a.active {
+            color: #1e90ff;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+        
+        .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 14px;
+        }
+        
+        .search-bar img {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+        }
+        
+        .hero-content {
+            width: 50%;
+        }
+        
+        .hero-subtitle {
+            color: #1e90ff;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .hero-title {
+            color: #0d2e4d;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0d2e4d;
+            padding-bottom: 10px;
+            width: fit-content;
+        }
+        
+        .hero-text {
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .primary-button {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .primary-button:hover {
+            background-color: #0066cc;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: #1e90ff;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Map Image */
+        .hero-image {
+            width: 50%;
+            position: relative;
+        }
+        
+        .map-image {
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .map-pin {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* Background Shape */
+        .bg-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 70%;
+            background-color: #85b8cb;
+            z-index: -1;
+            border-bottom-left-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-shape"></div>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzBkMmU0ZCIgcng9IjEwIiByeT0iMTAiLz4NCiAgPHBhdGggZD0iTTMwIDcwTDUwIDMwTDcwIDcwTDMwIDcwWiIgZmlsbD0iIzg1YjhjYiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIi8+DQo8L3N2Zz4=" alt="City Safe Logo">
+                <div class="logo-text">CITY SAFE</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Review</a></li>
+            </ul>
+            <div class="search-bar">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgPGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzc3IiBzdHJva2Utd2lkdGg9IjIiLz4NCiAgPHBhdGggZD0iTTE2IDE2TDIxIDIxIiBzdHJva2U9IiM3NzciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+DQo8L3N2Zz4=" alt="Search">
+                <input type="text" placeholder="Search">
+            </div>
+        </nav>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-subtitle">THE PERFECT MEASURE TO A SAFE CITY</p>
+                <h1 class="hero-title">CITY SAFE</h1>
+                <p class="hero-text">
+                    Stay Safe, Stay Informed.<br>
+                    Our app provides real-time safety insights with location-specific reports. AI-driven alerts keep you and your loved ones informed. Navigate your city confidently with real-time crime maps and emergency assistance at your fingertips.
+                </p>
+                <button class="primary-button">EXPLORE NOW</button>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">t</a>
+                    <a href="#" class="social-icon">in</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img class="map-image" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxyZWN0IHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB4PSIyNSIgeT0iMjUiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2VlZSIgc3Ryb2tlLXdpZHRoPSIyIiByeD0iMTAiIHJ5PSIxMCIvPg0KICA8cGF0aCBkPSJNNTAgNTAgTDEyNSA3NSBMMjAwIDUwIEwyNzUgMTAwIEwzNTAgNzUgTDM1MCAxNzUgTDI3NSAyMDAgTDIwMCAxNzUgTDEyNSAyMjUgTDUwIDE3NSBaIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmNjMDAiIHN0cm9rZS13aWR0aD0iMyIvPg0KICA8cGF0aCBkPSJNNzUgNzUgTDEwMCAxMDAgTDE1MCA1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZjYzAwIiBzdHJva2Utd2lkdGg9IjMiLz4NCiAgPHBhdGggZD0iTTI1MCA3NSBMMjc1IDEyNSBMMzAwIDEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZjYzAwIiBzdHJva2Utd2lkdGg9IjMiLz4NCiAgPHBhdGggZD0iTTE1MCAxNTAgTDE3NSAxNzUgTDIyNSAxMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmY2MwMCIgc3Ryb2tlLXdpZHRoPSIzIi8+DQo8L3N2Zz4=" alt="City Map">
+                <img class="map-pin" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNkYzE0M2MiLz4NCiAgPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMTUiIGZpbGw9IiNmZmYiLz4NCiAgPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNyIgZmlsbD0iI2RjMTQzYyIvPg0KICA8cGF0aCBkPSJNMzAgNjAgTDIwIDMwIEwzMCAxMCBMNDAgMzAgWiIgZmlsbD0iI2RjMTQzYyIvPg0KPC9zdmc+" alt="Map Pin">
+            </div>
+        </section>
+    </div>
+</body>
+</html>
